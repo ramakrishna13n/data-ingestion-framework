@@ -1,0 +1,14 @@
+{
+  "version": "2017-02-28",
+  "operation": "GET",
+  "path": "/stocks/_search",
+  "params": {
+    "body": {
+      "from": $ctx.args.from,
+      "size": $ctx.args.size,
+      "query": {
+        "match_all": {}
+      }
+    }
+  }
+}

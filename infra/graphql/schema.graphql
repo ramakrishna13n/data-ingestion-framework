@@ -1,0 +1,63 @@
+"""
+Custom scalar type for handling JSON data
+"""
+scalar AWSJSON
+
+"""
+Root Query type containing all API queries
+"""
+type Query {
+
+    """
+    Performs full-text search across any dataset
+    @param query - Search term/phrase to look for
+    @return JSON object containing search results
+    """
+    search(query: String!): AWSJSON
+
+    """
+    Filters data based on field value matches
+    @param field - Name of the field to filter on
+    @param value - Value to match against the field
+    @return JSON object containing filtered results
+    """
+    filter(field: String!, value: String!): AWSJSON
+
+    """
+    Sorts results by specified field in ascending or descending order
+    @param field - Field name to sort by
+    @param order - Sort direction ('asc' or 'desc')
+    @return JSON object containing sorted results
+    """
+    sort(field: String!, order: String!): AWSJSON
+
+    """
+    Implements pagination to fetch subsets of data
+    @param from - Starting index (zero-based)
+    @param size - Number of items to return
+    @return JSON object containing paginated results
+    """
+    paginate(from: Int!, size: Int!): AWSJSON
+
+    """
+    Performs aggregation operations on numeric fields
+    @param aggregation - Type of aggregation ('SUM', 'AVG', 'MIN', 'MAX')
+    @param field - Field name to aggregate on
+    @return JSON object containing aggregation results
+    """
+    aggregate(aggregation: String!, field: String!): AWSJSON
+
+    """
+    Executes custom SQL queries on Amazon Redshift
+    @param sqlQuery - Raw SQL query string to execute
+    @return JSON object containing query results
+    """
+    runRedshiftQuery(sqlQuery: String!): AWSJSON
+}
+
+"""
+Schema definition specifying Query as the root operation type
+"""
+schema {
+    query: Query
+}

@@ -1,0 +1,14 @@
+{
+  "version": "2017-02-28",
+  "operation": "GET",
+  "path": "/stocks/_search",
+  "params": {
+    "body": {
+      "aggs": {
+        "aggregation_result": {
+          "$ctx.args.aggregation": { "field": "$ctx.args.field" }
+        }
+      }
+    }
+  }
+}
