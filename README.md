@@ -3,9 +3,9 @@
 ## Overview
 This project implements a scalable data ingestion and querying system designed to efficiently process, store, and analyze large datasets using AWS Redshift and OpenSearch. The system follows a batch ingestion approach allowing analytical data to be loaded into Redshift and OpenSearch while enabling real-time queries via AWS AppSync (GraphQL).
 
-For this **Proof of Concept (PoC)**, I used the **AWS Open Data** available on the [AWS Marketplace](https://aws.amazon.com/marketplace/seller-profile?id=c3d0a604-a811-4af5-bdba-7a9976bc0d0b). This free dataset contains **20 years of historical data** for the **top 10 US stocks** by market capitalization as of **September 5, 2020**. The data is a subset of historical market data from the **Alpha Vantage Finance APIs**. To use this dataset:
-1. **Subscribe to it on AWS Marketplace**
-2. **Copy the data to your `<S3 Bucket>/stock-data` ** before running the ingestion pipeline.
+For this Proof of Concept (PoC), I used the **AWS Open Data** available on the [AWS Marketplace](https://aws.amazon.com/marketplace/seller-profile?id=c3d0a604-a811-4af5-bdba-7a9976bc0d0b). This free dataset contains 20 years of historical data for the top 10 US stocks by market capitalization as of September 5, 2020. The data is a subset of historical market data from the [Alpha Vantage](https://aws.amazon.com/marketplace/seller-profile?id=c3d0a604-a811-4af5-bdba-7a9976bc0d0b). To use this dataset:
+1. Subscribe to it on AWS Marketplace
+2. Copy the data to your `<S3 Bucket>/stock-data` ** before running the ingestion pipeline.
 
 ## **Architecture Diagram**
 ![Ingestion App Architecture Diagram.png](Ingestion%20App%20Architecture%20Diagram.png)
