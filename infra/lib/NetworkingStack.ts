@@ -8,6 +8,7 @@ interface NetworkingStackProps extends cdk.StackProps {
 
 export class NetworkingStack extends cdk.Stack {
     public readonly vpc: ec2.Vpc;
+    public readonly openSearchSecurityGroup: ec2.SecurityGroup;
 
     constructor(scope: cdk.App, id: string, props?: NetworkingStackProps) {
         super(scope, id, props);
@@ -25,6 +26,11 @@ export class NetworkingStack extends cdk.Stack {
                     subnetType: ec2.SubnetType.PRIVATE_ISOLATED
                 }
             ],
+        });
+
+        this.openSearchSecurityGroup = new ec2.SecurityGroup(this, 'OpenSearchSG', {
+            vpc: this.vpc,
+            description: 'Security group for OpenSearch',
         });
     }
 }
